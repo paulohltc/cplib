@@ -1,3 +1,4 @@
+// Bitset operations
 __builtin_popcount(int x);
 __builtin_popcountll(ll x);
 const int SZ = 1e6;

@@ -1,3 +1,4 @@
+// Sieve
 const int MXN = 1e6+5;
 bitset<MXN> isPrime;
 

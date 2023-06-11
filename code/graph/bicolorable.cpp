@@ -1,3 +1,4 @@
+// Bicolorable
 int v,e;
 vector<int> adj[4005];
 vector<int> clr (4005,-1);

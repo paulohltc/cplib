@@ -1,3 +1,4 @@
+// Factorization
 vector<pii> getFact(int n){
 	vector<pii> primes;
 	for(int p = 2; p*p <= n; p++){

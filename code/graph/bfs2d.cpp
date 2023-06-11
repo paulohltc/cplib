@@ -1,3 +1,4 @@
+// BFS 2D
 int n,m;
 // g : labirinto de . e #
 string g[505];

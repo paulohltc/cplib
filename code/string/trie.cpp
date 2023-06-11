@@ -1,5 +1,4 @@
-int INF = INT_MAX;
-
+// Trie
 vector<vector<pii>> nxt(1,vector<pii>(2,{0,INF})); // (ID,#nos)
 vector<bool> isTerm(1);
 int id = 0;

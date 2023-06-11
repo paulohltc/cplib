@@ -1,9 +1,11 @@
+// Rabin Karp
 class RabinKarp{
 public:
 	ll base, mod, sz;
 	string s;
 	vector<ll> pot, has;
-	RabinKarp(const string& str,ll b = 997, ll m = 1e9 + 7): base(b), mod(m), s(str){
+	RabinKarp(const string& str,ll b = 997, ll m = 1e9 + 7)
+	: base(b), mod(m), s(str){
 		sz = str.length();
 		pot.resize(sz+1);
 		has.resize(sz+1);

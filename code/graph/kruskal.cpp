@@ -1,3 +1,4 @@
+// Kruskal
 struct DSU{
 	vector<int> p;
 	vector<int> sz;
