@@ -12,15 +12,16 @@ void dijkstra(ll node){
 	priority_queue<pii,vector<pii>, greater<pii>> pq;
 	pq.push({0,node});
 	while(!pq.empty()){
-		pii curr = pq.top(); pq.pop();
+		auto [d,out] = pq.top();
+		pq.pop();
 		ll d = curr.X, out = curr.Y; 
 		if(d > dist[out]) continue;
-		for(pii nb : adj[out]){
-			ll currD = dist[out] + nb.Y;
-			if(currD < dist[nb.X]){
-				dist[nb.X] = currD;
-				parent[nb.X] = out;
-				pq.push({currD,nb.X});
+		for(auto [cost, nb] : adj[out]){
+			ll currD = dist[out] + cost;
+			if(currD < dist[nb]){
+				dist[nb] = currD;
+				parent[nb] = out;
+				pq.push({currD,nb});
 			}
 		}
 	}
