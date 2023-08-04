@@ -13,7 +13,7 @@ struct Point{
     if(cmp(x, p.x) != 0) return x < p.x;
     return cmp(y, p.y) < 0;
   }
-  bool operator ==(const Point &p) const {return !cmp(x, p.x) && !cmp(y, p.y);}
+  bool operator == (const Point &p) const {return !cmp(x, p.x) && !cmp(y, p.y);}
   bool operator != (const Point &p) const {return !(p == *this);}
 
 	// basic ops
@@ -23,13 +23,33 @@ struct Point{
 	Point operator / (const double k) const {return Point(x/k,y/k);}
 };
 	// points ops
-double dist2(const Point& p, const Point& q) { 
-	Point diff = p-q;
-	return dot(diff,diff);
-}
 double dot (const Point& p,const Point& q) { return p.x*q.x + p.y*q.y; }
 double cross (const Point& p,const Point& q) { return p.x*q.y - p.y*q.x; }
+double norm(const Point& p) { return hypot(p.x,p.y); }
+double dist(const Point& p, const Point& q) { return hypot(p.x-q.x,p.y-q.y); }
+double dist2(const Point& p, const Point& q) { return dot(p-q,p-q); }
 ostream &operator<<(ostream &os, const Point &p) {
 	return os << "(" << p.x << "," << p.y << ")"; 
 }
+
+
+/*
+----
+---- retas
+*/
+
+struct Line{
+	Point p, point vd;
+	Line(const Point& p, const Point& vd) : p(p), vd(vd);
+}
+
+bool inLine(const Point& p, const Line& l){
+	return cross(p-l.p, l.vd) == 0;
+}
+double distPointLine(const Point& p, const Line& l){
+	Point vp = p-l.p;
+	return abs(cross(vp,l.vd))/norm(l.vd);
+}
+
+
 
