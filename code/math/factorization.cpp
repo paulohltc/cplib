@@ -8,8 +8,9 @@ vector<pii> getFact(int n){
 				exp++;
 				n /= p;
 			}
+			primes.PB({p,exp});
 		}
-		primes.PB({p,exp});
 	}
+	if(n > 1) primes.PB({n,1});
 	return primes;
 }
