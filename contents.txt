@@ -5,50 +5,50 @@
 # tab character:	
 
 [Template]
-template.cpp    Template
+template.cpp,Template
 
 [Data Structures]
-data-structures/fenwick-tree.cpp    Fenwick 
-data-structures/segtree-lazy.cpp    Segtree lazy
-data-structures/segtree-topdown.cpp Segtree Topdown
-data-structures/sparsetable.cpp Sparse Table
+data-structures/fenwick-tree.cpp,Fenwick 
+data-structures/segtree-lazy.cpp,Segtree Lazy
+data-structures/segtree-topdown.cpp,Segtree Topdown
+data-structures/sparsetable.cpp,SparseTable
 
 [DP]    
-dp/kanpsack.cpp     Kanpsack
-dp/lis.cpp  Longest     Increasing Sequence
+dp/knapsack.cpp,Knapsack
+dp/lis.cpp,Longest Increasing Sequence
                                 
 [Geometria]
-geometry/convexhull.cpp   Convex Hull
-geometry/point Point
+geometry/convexhull.cpp,Convex Hull
+geometry/point,Point
 
 [ETC]
-etc/bitset.cpp  Bitset
-etc/coordinate_compression.cpp  Coordinate Compression
-etc/ternary_search.cpp  Ternary Search
+etc/bitset.cpp,Bitset
+etc/coordinate_compression.cpp,Coordinate Compression
+etc/ternary_search.cpp,Ternary Search
 
 [GRAPH]
-graph/bfs2d.cpp BFS
-graph/bicolorable.cpp   Bicolorable
-graph/dijkstra.cpp  Dijkstra
-graph/dsu.cpp   DSU
-graph/floydWarshall.cpp Floyd Warshall
-graph/kosaraju.cpp  kosaraju
-graph/kruskal.cpp   Kruskal
-graph/lca.cpp   Lowest Common Ancestor (LCA)
-graph/maxFlow.cpp   Max Flow
-graph/policyBased.cpp   Policy Based
-graph/toposort.cpp  Toposort
-graph/twosat.cpp    2-sat
+graph/bfs2d.cpp,BFS 2D
+graph/bicolorable.cpp,Bicolorable
+graph/dijkstra.cpp,Dijkstra
+graph/dsu.cpp,DSU
+graph/floydWarshall.cpp,Floyd Warshall
+graph/kosaraju.cpp,Kosaraju
+graph/kruskal.cpp,Kruskal
+graph/lca.cpp,Lowest Common Ancestor (LCA)
+graph/maxFlow.cpp,Max Flow
+graph/policyBased.cpp,Policy Based
+graph/toposort.cpp,Toposort
+graph/twosat.cpp,2-sat
 
 [MATH]
-math/extendedEuclidean.cpp      Extended Euclidean
-math/factorization.cpp      Factorization
-math/fastexp.cpp      Fastexp
-math/polynomial.cpp      Polynomial
-math/sieve.cpp     Sieve
+math/extendedEuclidean.cpp,Extended Euclidean
+math/factorization.cpp,Factorization
+math/fastexp.cpp,Fastexp
+math/polynomial.cpp,Polynomial
+math/sieve.cpp,Sieve
 
 [STRINGS]
-strings/kmp.cpp     KMP
-strings/rabinkarp.cpp     RabinKarp
-strings/trie.cpp     Trie
+strings/kmp.cpp,KMP
+strings/rabinkarp.cpp,RabinKarp
+strings/trie.cpp,Trie
 
