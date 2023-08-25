@@ -34,7 +34,7 @@ struct TwoSat{
 		add_or(a,!b,a,!b);
 	}
 	// Mesmo valor
-    void add_and(int a, bool neg1, int b, bool neg2) {
+    void add_xnor(int a, bool neg1, int b, bool neg2) {
         add_xor(a, !neg1, b, neg2);
     }
     // 
