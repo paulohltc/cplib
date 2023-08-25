@@ -2,7 +2,7 @@ struct DSU{
 	vector<int> p;
 	vector<int> sz;
 	int n;
-	DSU(int nodes)
+	DSU(int nodes){
 		n = nodes;
 		p.resize(nodes);
 		sz.resize(nodes,1);
@@ -20,4 +20,5 @@ struct DSU{
 		}
 		return 0;
 	}
+
 };
