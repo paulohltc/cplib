@@ -2,7 +2,8 @@ struct DSU{
 	vector<int> p;
 	vector<int> sz;
 	int n;
-	DSU(int nodes){
+	DSU(int nodes)
+		n = nodes;
 		p.resize(nodes);
 		sz.resize(nodes,1);
 		iota(begin(p), end(p), 0);
