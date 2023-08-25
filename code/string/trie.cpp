@@ -1,48 +1,25 @@
-// Trie
-vector<vector<pii>> nxt(1,vector<pii>(2,{0,INF})); // (ID,#nos)
-vector<bool> isTerm(1);
-int id = 0;
+int trie[ms][sigma], terminal[ms], z = 1;
 
-void remove(ll x){
-	int node = 0;
-	for(int i = 31; i >= 0; i--){
-		bool bit = x & (1<<i);
-		if(nxt[node][bit].X == 0 || nxt[node][bit].Y == 0) return;
-		nxt[node][bit].Y--;
-		node = nxt[node][bit].X;
-	}
+void insert(string &p) {
+  int cur = 0;
+  for(int i = 0; i < p.size(); i++) {
+    int id = p[i]-'a';
+    if(!trie[cur][id]) {
+      trie[cur][id] = z++;
+    }
+    cur = trie[cur][id];
+  }
+  terminal[cur]++;
 }
 
-void insert(ll x){
-	int node = 0;
-	for(int i = 31; i >= 0; i--){
-		bool bit = x & (1<<i);
-		if(nxt[node][bit].X == 0){
-			nxt.PB(vector<pii>(2,{0LL,0LL}));
-			isTerm.PB(false);
-			nxt[node][bit].X = ++id;
-			nxt[node][bit].Y++;			
-		}
-		else{
-			nxt[node][bit].Y++;
-		}
-		node = nxt[node][bit].X;
-	}
-	isTerm[node] = true;	
-}
-
-int maxXor(ll k){
-	int node = 0;
-	ll ans = 0;
-	for(int i = 31; i >= 0; i--){
-		bool bit = k & (1<<i);
-		if(nxt[node][!bit].X != 0 && nxt[node][!bit].Y != 0){
-			ans += (1LL << i);
-			node = nxt[node][!bit].X;
-		}
-		else{
-			node = nxt[node][bit].X;
-		}
-	}
-	return ans;
+int count(string &p) {
+  int cur = 0;
+  for(int i = 0; i < p.size(); i++) {
+    int id = p[i]-'a';
+    if(!trie[cur][id]) {
+      return false;
+    }
+    cur = trie[cur][id];
+  }
+  return terminal[cur];
 }
