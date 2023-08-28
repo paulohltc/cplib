@@ -6,7 +6,7 @@ int cmp (double a, double b = 0) {
 }
 struct Point{
 	double x,y;
-	Point() : x(),y(){}
+	Point(){}
 	Point(double x = 0, double y = 0) : x(x),y(y){}
 	Point(const Point& p): x(p.x), y(p.y){}
   bool operator < (const Point &p) const {
@@ -45,8 +45,9 @@ ostream &operator<<(ostream &os, const Point &p) {
 
 struct Line{
 	Point p, vd;
+	Line(){}
 	Line(const Point& p, const Point& vd) : p(p), vd(vd);
-}
+};
 
 // pra segmento usar isso
 Line createLine(const Point& p1, const Point& p2){
