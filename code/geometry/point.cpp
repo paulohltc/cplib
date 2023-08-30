@@ -6,7 +6,6 @@ int cmp (double a, double b = 0) {
 }
 struct Point{
 	double x,y;
-	Point(){}
 	Point(double x = 0, double y = 0) : x(x),y(y){}
 	Point(const Point& p): x(p.x), y(p.y){}
   bool operator < (const Point &p) const {
@@ -46,7 +45,7 @@ ostream &operator<<(ostream &os, const Point &p) {
 struct Line{
 	Point p, vd;
 	Line(){}
-	Line(const Point& p, const Point& vd) : p(p), vd(vd);
+	Line(const Point& p, const Point& vd) : p(p), vd(vd) {};
 };
 
 // pra segmento usar isso
@@ -66,12 +65,12 @@ double distPointLine(const Point& p, const Line& l){
 	return abs(cross(vp,l.vd))/norm(l.vd);
 }
 
-double distPointSegment(const Point& p, const Line& l){
+double distPointSegment(const Point& p, const Line& s){
 	Point v1 = p - s.p;
 	double k = dot(v1,s.vd) / dot(s.vd, s.vd);
-	if(k < 0) return dist(p,l.p);
-	if(k > 1) return dist(p,l.p + l.vd);
-	return distPointLine(p,l);
+	if(k < 0) return dist(p,s.p);
+	if(k > 1) return dist(p,s.p + s.vd);
+	return distPointLine(p,s);
 }
 
 ostream &operator<<(ostream &os, const Line &l) {

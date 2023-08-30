@@ -1,7 +1,7 @@
 // Toposort
 const int MX = 1e5+5;
 vector<int> adj[MX];
-vector<int> dep(MX,0); // dep[x] = quantos nós se ligam a x
+vector<int> dep(MX,0); // dep[x] = quantos nodes se ligam a x
 int v;
 
 vector<int> toposort(){

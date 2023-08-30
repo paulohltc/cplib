@@ -17,16 +17,16 @@ data-structures/sparsetable.cpp,SparseTable
 dp/knapsack.cpp,Knapsack
 dp/lis.cpp,Longest Increasing Sequence
                                 
-[Geometria]
+[Geometry]
 geometry/convexhull.cpp,Convex Hull
-geometry/point,Point
+geometry/point.cpp,Point
 
 [ETC]
 etc/bitset.cpp,Bitset
 etc/coordinate_compression.cpp,Coordinate Compression
 etc/ternary_search.cpp,Ternary Search
 
-[GRAPH]
+[Graph]
 graph/bfs2d.cpp,BFS 2D
 graph/bicolorable.cpp,Bicolorable
 graph/dijkstra.cpp,Dijkstra
@@ -40,15 +40,15 @@ graph/policyBased.cpp,Policy Based
 graph/toposort.cpp,Toposort
 graph/twosat.cpp,2-sat
 
-[MATH]
+[Math]
 math/extendedEuclidean.cpp,Extended Euclidean
 math/factorization.cpp,Factorization
 math/fastexp.cpp,Fastexp
 math/polynomial.cpp,Polynomial
 math/sieve.cpp,Sieve
 
-[STRINGS]
-strings/kmp.cpp,KMP
-strings/rabinkarp.cpp,RabinKarp
-strings/trie.cpp,Trie
+[String]
+string/kmp.cpp,KMP
+string/rabinkarp.cpp,RabinKarp
+string/trie.cpp,Trie
 
