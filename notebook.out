@@ -1,0 +1,40 @@
+\BOOKMARK [1][-]{section.1}{Template}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Template}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Data Structures}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Fenwick}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Segtree Lazy}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.3}{Segtree Topdown}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.4}{SparseTable}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{DP}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Knapsack}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Longest Increasing Sequence}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Geometry}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Convex Hull}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Point}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{ETC}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Bitset}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Coordinate Compression}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{Ternary Search}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{Graph}{}% 18
+\BOOKMARK [2][-]{subsection.6.1}{BFS 2D}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.2}{Bicolorable}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.3}{Dijkstra}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.4}{DSU}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.5}{Floyd Warshall}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.6}{Kosaraju}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.7}{Kruskal}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.8}{Lowest Common Ancestor \(LCA\)}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.9}{Max Flow}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.10}{Policy Based}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.11}{Toposort}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.12}{2-sat}{section.6}% 30
+\BOOKMARK [1][-]{section.7}{Math}{}% 31
+\BOOKMARK [2][-]{subsection.7.1}{Extended Euclidean}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.2}{Factorization}{section.7}% 33
+\BOOKMARK [2][-]{subsection.7.3}{Fastexp}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.4}{Polynomial}{section.7}% 35
+\BOOKMARK [2][-]{subsection.7.5}{Sieve}{section.7}% 36
+\BOOKMARK [1][-]{section.8}{String}{}% 37
+\BOOKMARK [2][-]{subsection.8.1}{KMP}{section.8}% 38
+\BOOKMARK [2][-]{subsection.8.2}{RabinKarp}{section.8}% 39
+\BOOKMARK [2][-]{subsection.8.3}{Trie}{section.8}% 40
