@@ -15,5 +15,6 @@ vector<int> sieve(){
 			}
 		}
 	}
+	sort(begin(primes),end(primes));
 	return primes;
 }
