@@ -1,18 +1,17 @@
-int v = 1e5;
-DSU dsu = DSU(v+5);
-priority_queue<pair<int,pii>,vector<pair<int,pii>>, greater<pair<int,pii>>> pq;
-for(int i = 0; i < e; i++){
-	int x,y,w; cin >> x >> y >> w;
-	pq.push({w,{x,y}});
+int n = 1e5;
+DSU dsu = DSU(n+5);
+using tp = tuple<ll,int,int>
+vector<tp> edges(e);
+for(auto& [w, u, v] : edges){
+	cin >> u >> v >> w;
 }
-int edges = v-1; // mst count
-ll mstSum = 0;
-while(edges > 0){
-	pair<int,pii> curr = pq.top();pq.pop();
-	int w = curr.X, x = curr.Y.X, y = curr.Y.Y;
-	if(dsu.unite(x,y)){
-		mstSum += w;
-		edges--;
+sort(begin(edges),end(edges));
+ll cost = 0;
+int cnt = 0;
+for(auto [w, u, v] : edges){
+	if(dsu.unite(u,v)){
+		cost += w;
+		cnt++;
 	}
 }
-cout << mstSum;
+// if(cnt != n-1) cout << "IMPOSSIBLE" << br;

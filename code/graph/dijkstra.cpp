@@ -1,6 +1,6 @@
 // Dijkstra
 #define pii pair<ll,ll>
-const ll MXN = 1e5+5;
+const ll MXN = 2e5+5;
 const ll INF = LLONG_MAX;
 int v,e;
 vector<pii> adj[MXN];
@@ -12,16 +12,15 @@ void dijkstra(ll node){
 	priority_queue<pii,vector<pii>, greater<pii>> pq;
 	pq.push({0,node});
 	while(!pq.empty()){
-		auto [d,out] = pq.top();
+		auto [d,u] = pq.top();
 		pq.pop();
-		ll d = curr.X, out = curr.Y; 
-		if(d > dist[out]) continue;
-		for(auto [cost, nb] : adj[out]){
-			ll currD = dist[out] + cost;
-			if(currD < dist[nb]){
-				dist[nb] = currD;
-				parent[nb] = out;
-				pq.push({currD,nb});
+		if(d > dist[u]) continue;
+		for(auto [cost, v] : adj[u]){
+			ll currD = dist[u] + cost;
+			if(currD < dist[v]){
+				dist[v] = currD;
+				parent[v] = out;
+				pq.push({currD,v});
 			}
 		}
 	}

@@ -20,5 +20,4 @@ struct DSU{
 		}
 		return 0;
 	}
-
 };
