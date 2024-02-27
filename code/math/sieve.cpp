@@ -1,7 +1,6 @@
 // Sieve
 const int MXN = 1e6+5;
 bitset<MXN> isPrime;
-
 vector<int> sieve(){
 	isPrime.set();
 	isPrime[0] = 0;

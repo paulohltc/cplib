@@ -16,3 +16,16 @@ double tern_search(double l, double r){ // achar o maximo
 	}
 	return max(f(l),f(r));
 }
+// retorna mais a esquerda no empate
+int int_tern_search(int l, int r){
+	int lo = l - 1, hi = r;
+	while(hi - lo > 1){
+		int m = (lo+hi)/2;
+		if(f(m) >= f(m+1)){ // decrescendo
+			hi = m;
+		}else{ // crescendo;
+			lo = m;
+		}
+	}
+	return lo + 1;
+}

@@ -1,5 +1,6 @@
 const int mxn = 2e5+5;
 const int LOG = 22;
+int n, q;
 int tin[mxn], tout[mxn];
 vector<vector<int>> up; // up[v][k] = 2^k-esimo ancestor de v
 vector<int> g[mxn];
