@@ -1,7 +1,7 @@
 // SegTree
 const int mx = 2e5 + 5;
-vector<ll> seg(4*mx);
-vector<ll> nums(mx);
+ll seg[4*mx];
+ll nums[mx];
 int n,q;
 ll merge(ll a, ll b){
 	return a+b;
@@ -46,4 +46,3 @@ void update(int pos, int num, int l = 0, int r = n-1, int idx = 0){
 	else update(pos,num,mid+1,r,right);
 	seg[idx] = merge(seg[left],seg[right]);
 }
-

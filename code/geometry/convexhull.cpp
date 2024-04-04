@@ -65,3 +65,20 @@ bool isInside(const vector<Point> &hull, Point pt) {
     v0 = hull[(l+1)%n] - hull[l], v1 = pt - hull[l];
   return cross(v0,v1) >= 0;
 }
+// poligonos
+
+ll polygon_area_db(const vector<Point>& poly){
+  ll area = 0;
+  for(int i = 0, n = (int)poly.size(); i < n; ++i) {
+    int j = i + 1 == n ? 0 : i + 1;
+    area += cross(poly[i], poly[j]);
+  }
+  return abs(area);
+}
+// Teorema de Pick para lattice points
+// Area = insidePts + boundPts/2 - 1
+// 2A - b + 2 = 2i
+// usar gcd dos lados pra contar bound pts
+ll cntInsidePts(ll area_db, ll boundPts){
+  return (area_db + 2LL - boundPts)/2;
+}

@@ -4,9 +4,11 @@ int n, q;
 int tin[mxn], tout[mxn];
 vector<vector<int>> up; // up[v][k] = 2^k-esimo ancestor de v
 vector<int> g[mxn];
+int lvl[mxn];
 int timer = 0;
 void dfs(int u, int p){
     tin[u] = ++timer;
+    lvl[u] = lvl[p] + 1;
     up[u][0] = p;
     for(int i = 1; i <= LOG; i++){
         up[u][i] = up[ up[u][i-1] ][i-1];
@@ -31,4 +33,9 @@ int lca(int a, int b){
         }
     }
     return up[a][0];
+}
+
+int dist(int u, int v){
+    int l = lca(u,v);
+    return lvl[u]+lvl[v]-2*lvl[l];
 }
