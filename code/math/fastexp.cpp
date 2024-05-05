@@ -1,5 +1,16 @@
 // Fast Exp
-const ll MOD = 1e9+7;
+const ll mod = 1e9+7;
+
+
+ll fexpll(ll a, ll n){
+	ll ans = 1;
+	while(n){
+		if(n & 1) ans = (ans * a) % mod;
+		a = (a * a) % mod;
+		n >>= 1;
+	}
+	return ans;
+}
 // matriz quadrada
 class Matrix{ 
 	public:
@@ -14,7 +25,7 @@ class Matrix{
 		for(int i = 0; i < m; i++)
 			for(int j = 0; j < m; j++)
 				for(int k = 0; k < m; k++)
-					ans.mat[i][j] = (ans.mat[i][j] + (mat[i][k] * rhs.mat[k][j]) % MOD) % MOD;
+					ans.mat[i][j] = (ans.mat[i][j] + (mat[i][k] * rhs.mat[k][j]) % mod) % mod;
 		return ans;
 	}
 };

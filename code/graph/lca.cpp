@@ -34,8 +34,3 @@ int lca(int a, int b){
     }
     return up[a][0];
 }
-
-int dist(int u, int v){
-    int l = lca(u,v);
-    return lvl[u]+lvl[v]-2*lvl[l];
-}
