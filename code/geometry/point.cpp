@@ -36,10 +36,6 @@ ostream &operator<<(ostream &os, const Point &p) {
 }
 
 
-/*
-----
----- retas
-*/
 
 
 struct Line{
@@ -48,29 +44,10 @@ struct Line{
 	Line(const Point& p, const Point& vd) : p(p), vd(vd) {};
 };
 
-// pra segmento usar isso
-Line createLine(const Point& p1, const Point& p2){
-	return Line(p1, p2-p1);
-}
-bool pointInSegment(const Point& p, const Line& s){ 
-	Point v1 = p - s.p;
-	double k = dot(v1,s.vd) / dot(s.vd, s.vd);
-	return 0 <= k && k <= 1;
-}
-bool inLine(const Point& p, const Line& l){
-	return cross(p-l.p, l.vd) == 0;
-}
+
 double distPointLine(const Point& p, const Line& l){
 	Point vp = p-l.p;
 	return abs(cross(vp,l.vd))/norm(l.vd);
-}
-
-double distPointSegment(const Point& p, const Line& s){
-	Point v1 = p - s.p;
-	double k = dot(v1,s.vd) / dot(s.vd, s.vd);
-	if(k < 0) return dist(p,s.p);
-	if(k > 1) return dist(p,s.p + s.vd);
-	return distPointLine(p,s);
 }
 
 ostream &operator<<(ostream &os, const Line &l) {

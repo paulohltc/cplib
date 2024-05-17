@@ -13,6 +13,3 @@ void increment(ll i, ll v){ // 1 indexado (+= v)
 	for(; i <= n; i += i & -i)
 		bit[i] += v;
 }
-
-
-

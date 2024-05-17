@@ -20,6 +20,10 @@ vector<Point> convexHull(vector<Point> points, bool sorted = false) {
   if (hull.size() == 2 && hull[0] == hull[1]) hull.pop_back();
   return hull;
 }
+
+
+
+
 // pegar half-hull 0 -> n
 vector<Point> halfHull(vector<Point>& pts, bool upper = 0){
   int n = pts.size();
