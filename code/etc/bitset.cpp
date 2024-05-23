@@ -11,3 +11,8 @@ b._Find_next(i);
 b.to_ulong();
 b.to_string();
 b.count();
+
+// rng
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+shuffle(begin(x),end(x),rng);
+uniform_int_distribution<int>(0,x)(rng);
