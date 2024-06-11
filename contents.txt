@@ -4,9 +4,6 @@
 #   [filename within code directory][tab character \t][subsection title]
 # tab character:	
 
-[Template]
-template.cpp,Template
-
 [Data Structures]
 data-structures/fenwick-tree.cpp,Fenwick 
 data-structures/segtree-lazy.cpp,Segtree Lazy
@@ -18,37 +15,34 @@ dp/knapsack.cpp,Knapsack
 dp/lis.cpp,Longest Increasing Sequence
                                 
 [Geometry]
-geometry/convexhull.cpp,Convex Hull
 geometry/point.cpp,Point
+geometry/convexhull.cpp,Convex Hull
 
 [ETC]
 etc/bitset.cpp,Bitset
-etc/coordinate_compression.cpp,Coordinate Compression
 etc/ternary_search.cpp,Ternary Search
-
+etc/mo.cpp,Mo Algorithm
 [Graph]
-graph/bfs2d.cpp,BFS 2D
-graph/bicolorable.cpp,Bicolorable
 graph/dijkstra.cpp,Dijkstra
 graph/dsu.cpp,DSU
 graph/floydWarshall.cpp,Floyd Warshall
 graph/kosaraju.cpp,Kosaraju
 graph/kruskal.cpp,Kruskal
-graph/lca.cpp,Lowest Common Ancestor (LCA)
+graph/lca.cpp,Lowest Common Ancestor
 graph/maxFlow.cpp,Max Flow
 graph/policyBased.cpp,Policy Based
-graph/toposort.cpp,Toposort
 graph/twosat.cpp,2-sat
 
 [Math]
 math/extendedEuclidean.cpp,Extended Euclidean
 math/factorization.cpp,Factorization
 math/fastexp.cpp,Fastexp
+math/phi.cpp,Phi
+math/pollardrho.cpp,Pollard Rho
 math/polynomial.cpp,Polynomial
-math/sieve.cpp,Sieve
 
 [String]
 string/kmp.cpp,KMP
 string/rabinkarp.cpp,RabinKarp
 string/trie.cpp,Trie
-
+string/zfunc.cpp,Z Function
