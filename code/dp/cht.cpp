@@ -7,7 +7,6 @@ struct Line {
 };
 struct CHT {
   vector<Line> lines;
-  const bool maxcht = 1;
   bool bad(Line a, Line b, Line c) {
   	// trocar pra < se for max
     return 1.d * (c.c - a.c)*(a.m - b.m) > 1.d * (b.c - a.c)*(a.m - c.m);

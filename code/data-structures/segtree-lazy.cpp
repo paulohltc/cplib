@@ -1,5 +1,5 @@
 // Lazy SegTree
-const int MX = 2e5+5;
+const int mx = 2e5+5;
 vector<ll> seg(4*mx);
 vector<ll> lazy(4*mx,0);
 vector<ll> nums(mx);
