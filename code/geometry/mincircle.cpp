@@ -1,27 +1,27 @@
-double ccRadius(const Point& A, const Point& B, const Point& C) {
-	Point ab = B-A, ac = C-A;
-	return dist(A,B)*dist(B,C)*dist(A,C)/
-			abs(cross(ab,ac))/2; 
+typedef PT<double> P;
+double ccRadius(P& A, P& B, P& C) {
+  return (B-A).len()*(C-B).len()*(A-C).len()/
+      abs((B-A).cross(C-A))/2.0;
 }
-Point ccCenter(const Point& A, const Point& B, const Point& C) {
-	Point b = C-A, c = B-A;
-	Point x = b*dot(c,c)-c*dot(b,b);
-	return A + perp(x)/cross(b,c)/2;
+
+P ccCenter(P& A, P& B, P& C) {
+  P b = C-A, c = B-A;
+  return A + (b*c.dist2()-c*b.dist2()).perp()/b.cross(c)/2;
 }
 // mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-pair<Point, double> mec(vector<Point>& pts){
+pair<P, double> mec(vector<P>& pts){
 	shuffle(begin(pts),end(pts),rng);
-	Point o = pts[0];
+	P o = pts[0];
 	const double EPSS = 1+1e-8;
 	double r = 0;
-	for(int i = 0; i < pts.size(); i++) if(dist(o, pts[i]) > r * EPSS){
+	for(int i = 0; i < pts.size(); i++) if((o-pts[i]).len() > r * EPSS){
 		o = pts[i], r = 0;
-		for(int j = 0; j < i; j++) if(dist(o, pts[j]) > r * EPSS){
+		for(int j = 0; j < i; j++) if((o-pts[j]).len() > r * EPSS){
 			o = (pts[i]+pts[j])/2.0;
-			r = dist(o,pts[i]);
-			for(int k = 0; k < j; k++) if(dist(o, pts[k]) > r * EPSS){
+			r = (o - pts[i]).len();
+			for(int k = 0; k < j; k++) if((o-pts[k]).len() > r * EPSS){
 				o = ccCenter(pts[i],pts[j],pts[k]);
-				r = dist(o,pts[i]);
+				r = (o - pts[i]).len();
 			}
 		}
 	}

@@ -1,22 +1,16 @@
-const int inf = 0x3f3f3f3f;
-int g[ms][ms], dis[ms][ms], n;
-
-void clear() {
-  memset(g, 0x3f, sizeof g);
-  for(int i = 0; i < n; i++) g[i][i] = 0;
+const int mxn = 505;
+const ll inf = 1e18;
+ll g[mxn][mxn]; // setar tudo infinito menos (i,i) como 0
+int n;
+void addEdge(int u, int v, ll w){
+  g[u][v] = min(g[u][v],w);
+  g[v][u] = min(g[v][u],w); // tirar se for 1 dir
 }
 
-void add(int u, int v, int w) {
-  g[u][v] = min(w, g[u][v]);
-}
-
-void floydWarshall() {
-  memcpy(g, dis, sizeof g);
-  for(int k = 0; k < n; k++) {
-    for(int i = 0; i < n; i++) { 
-      for(int j = 0; j < n; j++) {
-        dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);
-      }
-    }
-  }
+void floyd(){
+  for(int k = 0; k < n; k++) // << k
+    for(int i = 0; i < n; i++)
+      for(int j = 0; j < n; j++) 
+        if(g[i][k] + g[k][j] < g[i][j]) // cuida overflow aqui (inf)
+          g[i][j] = g[i][k] + g[k][j];
 }

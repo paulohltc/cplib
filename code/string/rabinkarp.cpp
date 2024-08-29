@@ -1,40 +1,48 @@
 // Rabin Karp
 const ll base = 997;
 const ll mod[] ={1000000007, 1000000009};
-using Hash = pair<ll,ll>;
-const int str_mxsz = 1e5+2;
-ll pot[str_mxsz][2];
+const int MXSZ = 1e6+2;
+/*
+Some Big Prime Numbers:
+37'139'213
+const ll MOD1 = 131'807'699; -> Big Prime Number for hash 1
+const ll MOD1 = 127'065'427; -> Big Prime Number for hash 2
+const ll base = 127;         -> Random number larger than the Alphabet
+*/
+
+ll pot[2][MXSZ];
 void buildPots(){ // lembrar de chamar essa funcao
-	pot[0][0] = 1;
-	pot[0][1] = 1;
-	for(int i = 1; i < str_mxsz; i++)
-		for(int j = 0; j < 2; j++)
-			pot[i][j] = (pot[i-1][j]*base) % mod[j];
+  pot[0][0] = 1;
+  pot[1][0] = 1;
+  for(int j = 0; j < 2; j++)
+    for(int i = 1; i < MXSZ; i++)
+      pot[j][i] = (pot[j][i-1]*base) % mod[j];
 }
 
 class RabinKarp{
 public:
-	string s;
-	int sz;
-	vector<vector<ll>> has;
-	RabinKarp(){}
-	RabinKarp(const string& str): s(str){
-		sz = str.size();
-		has.assign(sz+1,vector<ll>(2));
-		build();
-	}
-	void build(){
-		has[0] = {s[0],s[0]};
-		for(int i = 1; i < sz; i++)
-			for(int j = 0; j < 2; j++)
-				has[i][j] = ((has[i-1][j]*base)+s[i])%mod[j];
-	}
-	Hash getKey(ll l, ll r){ // inclusivo
-		Hash ans = {has[r][0],has[r][1]};
-		if(l > 0){
-			ans.first = (((ans.first - pot[r-l+1][0]*has[l-1][0])%mod[0] + mod[0])%mod[0]);
-			ans.second = (((ans.second - pot[r-l+1][1]*has[l-1][1])%mod[1] + mod[1])%mod[1]);
-		} 
-		return ans;
-	}
+  string s;
+  int sz;
+  vector<ll> has[2];
+  RabinKarp(){}
+  RabinKarp(const string& str): s(str){
+    sz = str.size();
+    has[0].resize(sz+1);
+    has[1].resize(sz+1);
+    build();
+  }
+  void build(){
+    has[0][0] = s[0], has[1][0] = s[0]; 
+    for(int j = 0; j < 2; j++)
+      for(int i = 1; i < sz; i++)
+        has[j][i] = ((has[j][i-1]*base)+s[i])%mod[j];
+  }
+  ll getKey(int l, int r){ // inclusivo
+    ll x = has[0][r], y = has[1][r];
+    if(l > 0){
+      x = (((x - pot[0][r-l+1]*has[0][l-1])%mod[0] + mod[0])%mod[0]);
+      y = (((y - pot[1][r-l+1]*has[1][l-1])%mod[1] + mod[1])%mod[1]);
+    } 
+    return (x<<32LL)|y;
+  }
 };
