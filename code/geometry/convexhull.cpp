@@ -10,7 +10,7 @@ vector<PT<T>> convexHull(vector<PT<T>>& pts, bool sorted = false){
       while((int)h.size() >= start + 2){
         PT<T> a = h[h.size()-2], b = h.back();
         // '>=' pra nao descartar pontos colineares
-        if((b-a).cross(c-a) >= 0) break; 
+        if((b-a).cross(c-a) > 0) break; 
         h.pop_back();
       }
       h.push_back(c);
