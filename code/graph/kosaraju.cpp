@@ -1,41 +1,33 @@
 // Kosaraju
-vector<vector<int>> G, Gt;
-vector<int> id;
-vector<int> order;
+const int ms = 1e5 + 5;
+vector<int> G[ms], Gt[ms];
+vector<int> id, order, root;
 vector<bool> vis;
 int n;
-
-void dfs1(int v){ // ordem de saida 
-  vis[v] = true;
-  for(int u : G[v]){
-    if(!vis[u]) dfs1(u);
-  }
-  order.PB(v);
+void dfs1(int u){ // ordem de saida 
+  vis[u] = true;
+  for(int v : G[u])
+    if(!vis[v]) 
+      dfs1(v);
+  order.push_back(u);
 }
-void dfs2(int v, int idx, vector<int>& component){ // pegar um componente todo
-    vis[v] = true;
-    id[v] = idx;
-    component.PB(v);
-    for(int u : Gt[v]){
-        if(!vis[u]) dfs2(u);
-    }
+void dfs2(int u, int idx){
+  id[u] = idx;
+  for(int v : Gt[u])
+    if(id[v] == -1) 
+      dfs2(v,idx);
 }
-vector<vector<int>> kosaraju(){ 
-  vector<vector<int>> components;
+// retorna quantidade de componentes
+int kosaraju(){  
   vis.assign(n,false);
-  for(int i = 0; i < n; i++){
-    if(!vis[i]) dfs1(i);
-  }
-  vis.assign(n,false);
+  id.assign(n,-1);
+  for(int i = 0; i < n; i++)
+    if(!vis[i]) 
+      dfs1(i);
   reverse(begin(order),end(order));
   int idx = 0;
-  for(int v : order){
-    if(!vis[v]){
-      vector<int> component;
-      dfs2(v, idx++, component); 
-      // sort(begin(component),end(component));
-      components.PB(component);
-    }
-  }
-  return components; 
+  for(int u : order)
+    if(id[u] == -1)
+      dfs2(u, idx++), root.push_back(u); 
+  return idx; 
 }
