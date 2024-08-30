@@ -7,22 +7,29 @@
 [Data Structures]
 data-structures/fenwick-tree.cpp,Fenwick 
 data-structures/segtree-lazy.cpp,Segtree Lazy
-data-structures/segtree-topdown.cpp,Segtree Topdown
+data-structures/segtree-topdown.cpp,Segtree
 data-structures/sparsetable.cpp,SparseTable
+data-structures/dynamic-median.cpp,Dynamic Median
 
 [DP]    
+dp/cht.cpp,CHT
 dp/knapsack.cpp,Knapsack
-dp/lis.cpp,Longest Increasing Sequence
+dp/lis.cpp,LIS
                                 
 [Geometry]
 geometry/point.cpp,Point
 geometry/convexhull.cpp,Convex Hull
+geometry/mincircle.cpp,Min Enclosing Circle
+geometry/closestpair.cpp,Clostest Pair
 
 [ETC]
 etc/bitset.cpp,Bitset
 etc/ternary_search.cpp,Ternary Search
 etc/mo.cpp,Mo Algorithm
+
 [Graph]
+graph/articulation.cpp,Articulation Pts
+graph/bridges.cpp,Bridges
 graph/dijkstra.cpp,Dijkstra
 graph/dsu.cpp,DSU
 graph/floydWarshall.cpp,Floyd Warshall
@@ -46,3 +53,4 @@ string/kmp.cpp,KMP
 string/rabinkarp.cpp,RabinKarp
 string/trie.cpp,Trie
 string/zfunc.cpp,Z Function
+string/aho.cpp,Aho-Corasick
