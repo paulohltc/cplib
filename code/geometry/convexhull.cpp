@@ -1,67 +1,49 @@
-// O(nlogn) sorted = false
-// O(n) sorted = true
-vector<Point> convexHull(vector<Point> points, bool sorted = false) { 
-  if(!sorted)  sort(begin(points), end(points));
-  vector<Point> hull;
-  hull.reserve(points.size() + 1);
-  for (int phase = 0; phase < 2; ++phase) {
-    int start = hull.size();
-    for (Point& c : points) {
-      while (hull.size() >= start+2){
-        Point a = hull[hull.size()-2], b = hull.back();
-        if(cross(b-a,c-a) > 0) break; // '>' descarta pontos colineares, '>=' nao, '<' sentido horario
-        hull.pop_back();
-      } 
-      reverse(begin(points), end(points));
-      hull.push_back(c);
+// retorna poligono no sentido anti horario, trocar pra < se quiser horario
+template<typename T>
+vector<PT<T>> convexHull(vector<PT<T>>& pts, bool sorted = false){
+  if(!sorted) sort(begin(pts),end(pts));
+  vector<PT<T>> h;
+  h.reserve(pts.size() + 1);
+  for(int it = 0; it < 2; it++){
+    int start = h.size();
+    for(PT<T>& c : pts){
+      while((int)h.size() >= start + 2){
+        PT<T> a = h[h.size()-2], b = h.back();
+        // '>=' pra nao descartar pontos colineares
+        if((b-a).cross(c-a) >= 0) break; 
+        h.pop_back();
+      }
+      h.push_back(c);
     }
-    hull.pop_back();
+    reverse(begin(pts),end(pts));
+    h.pop_back();
   }
-  if (hull.size() == 2 && hull[0] == hull[1]) hull.pop_back();
-  return hull;
+  if(h.size() == 2 && h[0] == h[1]) h.pop_back();
+  return h;
 }
 
-
-
-
-// pegar half-hull 0 -> n
-vector<Point> halfHull(vector<Point>& pts, bool upper = 0){
-  int n = pts.size();
-  vector<Point> hull(n + 1);
-  int s = 0;
-  for(int i = 0; i < n; i++){
-    hull[s++] = pts[i];
-    while(s >= 3){
-      Point a = hull[s-3], b = hull[s-2], c = hull[s-1];
-      Point v1 = b-a, v2 = c-b;
-      if((upper?-1:1)*cross(v1,v2) >= 0)  break;
-      hull[s-2] = hull[s-1];
-      s--;
-    }
-  }
-  hull.resize(s);
-  return hull;
-}
-
-bool isInside(const vector<Point> &hull, Point pt) {
+// nao funciona se tem pontos colineares!!!!
+// considera ponto na aresta como dentro
+template<typename T>
+bool isInside(vector<PT<T>>& hull, PT<T> p) {
   int n = hull.size();
-  Point v0 = pt - hull[0], v1 = hull[1] - hull[0], v2 = hull[n-1] - hull[0];
-  if(cross(v0,v1) > 0 || cross(v0,v2) < 0){
+  PT<T> v0 = p - hull[0], v1 = hull[1] - hull[0], v2 = hull[n-1] - hull[0];
+  if(v0.cross(v1) > 0 || v0.cross(v2) < 0){
     return false;
   }
   int l = 1, r = n - 1;
   while(l != r){
     int mid = (l + r + 1) / 2;
-    Point v0 = pt - hull[0], v1 = hull[mid] - hull[0];
-    if(cross(v0,v1) < 0) {
+    PT<T> v0 = p - hull[0], v1 = hull[mid] - hull[0];
+    if(v0.cross(v1) < 0)
       l = mid;
-    } else {
+    else 
       r = mid - 1;
-    }
   }
-  v0 = hull[(l+1)%n] - hull[l], v1 = pt - hull[l];
-  return cross(v0,v1) >= 0;
+  v0 = hull[(l+1)%n] - hull[l], v1 = p - hull[l];
+  return v0.cross(v1) >= 0;
 }
+
 // poligonos
 ll polygon_area_db(const vector<Point>& poly){
   ll area = 0;
