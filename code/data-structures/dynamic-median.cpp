@@ -1,3 +1,4 @@
+const ll inf = 1e18 + 5;
 struct DynamicMedian{
   multiset<ll> left, right;
   ll leftsum = 0, rightsum = 0;
@@ -6,7 +7,7 @@ struct DynamicMedian{
     return *left.rbegin();
   }
   ll qry(){ // somatorio de distancia absoluta pra mediana
-    ll m = get();
+    ll m = (left.empty() ? inf : get());
     // if(m == -1) return -1;
     return left.size()*m - leftsum + rightsum - right.size()*m;
   }
