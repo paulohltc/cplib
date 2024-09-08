@@ -7,7 +7,7 @@ struct DynamicMedian{
     return *left.rbegin();
   }
   ll qry(){ // somatorio de distancia absoluta pra mediana
-    ll m = (left.empty() ? inf : get());
+    ll m = get();
     // if(m == -1) return -1;
     return left.size()*m - leftsum + rightsum - right.size()*m;
   }
@@ -31,7 +31,7 @@ struct DynamicMedian{
   }
 
   void insert(ll x){
-    ll m = get();
+    ll m = (left.empty() ? inf : get());
     if(x <= m){
       left.insert(x);
       leftsum += x;
