@@ -1,7 +1,6 @@
 struct DSU{
-	vector<int> p;
-	vector<int> sz;
 	int n;
+	vector<int> p,sz;
 	DSU(int n) : n(n){
 		p.resize(n);
 		sz.resize(n,1);
