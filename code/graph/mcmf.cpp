@@ -10,29 +10,27 @@ struct MCMF{
   };
   int m = 0, n;
   vector<Edge> edges;
-  vector<vector<int>> adj;
+  vector<vector<int>> g;
   vector<Cap> neck;
   vector<Cost> dist, pot;
   vector<int> from;
-  MCMF(int n) : n(n), adj(n), neck(n), pot(n) {}
+  MCMF(int n) : n(n), g(n), neck(n), pot(n) {}
   void add_edge(int u, int v, Cap cap, Cost cost) {
     if(u != v) {
       edges.emplace_back(v, cap, cost);
       edges.emplace_back(u, 0, -cost);
-      adj[u].emplace_back(m++);
-      adj[v].emplace_back(m++);
+      g[u].emplace_back(m++);
+      g[v].emplace_back(m++);
     }	
   }
   void spfa(int s) {
-    //calculate initial potential
-    //pot[u] = dist(s, u)
     vector<bool> inq(n, false);
     queue<int> q({s});
     while(!q.empty()) {
       auto u = q.front();
       q.pop();
       inq[u] = false;
-      for(auto e : adj[u]) {
+      for(auto e : g[u]) {
         auto ed = edges[e];
         if(ed.res() == 0) continue;
         Cost w = ed.cost + pot[u] - pot[ed.to];
@@ -57,7 +55,7 @@ struct MCMF{
       auto [d_u, u] = pq.top();
       pq.pop();
       if(dist[u] != d_u) continue;
-      for(auto i : adj[u]) {
+      for(auto i : g[u]) {
         auto ed = edges[i];
         Cost w = ed.cost + pot[u] - pot[ed.to];
         if(ed.res() > 0 && dist[ed.to] > dist[u] + w) {
@@ -70,10 +68,9 @@ struct MCMF{
     return dist[t] < INF;
   }
   pair<Cap, Cost> mcmf(int s, int t, Cap k = numeric_limits<Cap>::max()) {
-    // k : maximum flow allowed
     Cap flow = 0;
     Cost cost = 0;
-    spfa(s); // in case of negative cost edges
+    spfa(s);
     while(flow < k && dijkstra(s, t)) {
       Cap amt = min(neck[t], k - flow);
       for(int v = t; v != s; v = edges[from[v] ^ 1].to) {
@@ -94,3 +91,4 @@ struct MCMF{
     }
   }
 };
+// hash: 8615758555a5fbae52f7e33dad88b6571dcf9bbb7841fb78589debed2a13d424

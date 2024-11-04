@@ -1,0 +1,27 @@
+Soma de pg: = a1*(q^n - 1)/(q - 1)
+Soma dos impares = n^2
+Soma de i^2: = n(n+1)(2n+1)/6
+
+Number theory:
+gcd(a+k*b,b) = gcd(a,b)
+phi(n) = #coprimos com n <=n
+phi(n) >= log2(n)
+phi(phi(n)) <= n/2
+a^phi(n) == 1 mod n
+a^-1 == a^(m-2) mod m
+Conjectura de Goldbach's: todo numero par n > 2 pode ser representado com n = a + b onde a e b sao primos
+Twin prime: existem infinitos pares p, p + 2 onde ambos sao primos
+Legendre's: sempre tem um primo entre n^2 e (n+1)^2
+Lagrange's: todo numero inteiro pode ser inscrito como a soma de 4 quadrados
+Wilson's: n eh primo quando (n-1)! mod n = n - 1
+Mcnugget: Para dois coprimos x, y  a quantidade de inteiros que nao pode ser escrito como ax + by eh (x-1)(y-1)/2, 
+     o maior inteiro que nao consegue eh x*y-x-y
+
+
+Geometria:
+V+F=A+2
+Formula de heron: sqrt(s*(s-a)*(s-b)*(s-c)), s = semiperimetro
+Volume de esfera: 4/3pi*r^3
+Area da esfera: 4pi*r^2
+Volume tetraedro: l^3 * sqrt(2)/12
+Projecao u em v = (u . v)/(v . v) * v

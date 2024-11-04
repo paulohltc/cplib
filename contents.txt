@@ -10,6 +10,7 @@ data-structures/segtree-lazy.cpp,Segtree Lazy
 data-structures/segtree-topdown.cpp,Segtree
 data-structures/sparsetable.cpp,SparseTable
 data-structures/dynamic-median.cpp,Dynamic Median
+data-structures/maxqueue.cpp,MaxQueue
 
 [DP]    
 dp/cht.cpp,CHT
@@ -23,9 +24,12 @@ geometry/mincircle.cpp,Min Enclosing Circle
 geometry/closestpair.cpp,Clostest Pair
 
 [ETC]
-etc/bitset.cpp,Bitset
 etc/ternary_search.cpp,Ternary Search
 etc/mo.cpp,Mo Algorithm
+etc/primes.txt,Prime list to 1000
+etc/composite.txt,Highly composite numbers
+etc/formulas.txt,Formulas
+etc/bitset.cpp,Bitset
 
 [Graph]
 graph/articulation.cpp,Articulation Pts
@@ -35,22 +39,27 @@ graph/dsu.cpp,DSU
 graph/floydWarshall.cpp,Floyd Warshall
 graph/kosaraju.cpp,Kosaraju
 graph/kruskal.cpp,Kruskal
-graph/lca.cpp,Lowest Common Ancestor
-graph/maxFlow.cpp,Max Flow
+graph/lca.cpp,LCA
+graph/dinic.cpp,Dinic
+graph/mcmf.cpp,MCMF
 graph/policyBased.cpp,Policy Based
-graph/twosat.cpp,2-sat
+graph/twosat.cpp,2Sat
 
 [Math]
 math/extendedEuclidean.cpp,Extended Euclidean
+math/crt.cpp,CRT
 math/factorization.cpp,Factorization
+math/divtrick.cpp,Division Trick
+math/frac.cpp,Fraction
+math/gaussianElim.cpp,Gaussian Elimination
 math/fastexp.cpp,Fastexp
-math/phi.cpp,Phi
 math/pollardrho.cpp,Pollard Rho
-math/polynomial.cpp,Polynomial
+math/phi.cpp,Phi
+
 
 [String]
-string/kmp.cpp,KMP
 string/rabinkarp.cpp,RabinKarp
 string/trie.cpp,Trie
+string/kmp.cpp,KMP
 string/zfunc.cpp,Z Function
 string/aho.cpp,Aho-Corasick

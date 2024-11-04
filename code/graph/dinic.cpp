@@ -1,4 +1,4 @@
-//O(V²E), O(E sqrtV) in unit networks
+//O(V^2 E), O(E sqrtV) in unit networks
 template<typename T>
 struct Edge {
   int to;
@@ -10,16 +10,16 @@ template<typename T>
 struct Dinic {
   using E = Edge<T>;
   int m = 0, n;
-  vector<E> edges;
-  vector<vector<int>> adj;
+  vector<E> ed;
+  vector<vector<int>> g;
   vector<int> dist, ptr;
-  Dinic(int n) : n(n), adj(n), dist(n), ptr(n) {}
+  Dinic(int n) : n(n), g(n), dist(n), ptr(n) {}
   void add_edge(int u, int v, T cap) {
     if(u != v) {
-      edges.emplace_back(v, cap);
+      ed.emplace_back(v, cap);
       edges.emplace_back(u, 0);
-      adj[u].emplace_back(m++);
-      adj[v].emplace_back(m++);
+      g[u].emplace_back(m++);
+      g[v].emplace_back(m++);
     }	
   }
   bool bfs(int s, int t) {
@@ -30,7 +30,7 @@ struct Dinic {
       int u = q.front();
       q.pop();
       if(u == t) break;
-      for(int id : adj[u]) {
+      for(int id : g[u]) {
         E& e = edges[id];
         if(e.res() > 0 && dist[e.to] > dist[u] + 1) {
           dist[e.to] = dist[u] + 1;
@@ -39,24 +39,6 @@ struct Dinic {
       }
     }
     return dist[t] != n + 1;
-  }
-  T dfs(int u, int t, T flow) {
-    if(u == t || flow == 0) {
-      return flow;
-    }
-    for(int& i = ptr[u]; i < (int)adj[u].size(); ++i) {
-      E& e = edges[adj[u][i]];
-      E& oe = edges[adj[u][i] ^ 1];
-      if(dist[e.to] == dist[oe.to] + 1) {
-        T amt = min(flow, e.res());
-        if(T ret = dfs(e.to, t, amt)) {
-          e.flow += ret;
-          oe.flow -= ret;
-          return ret;
-        }
-      }
-    }
-    return 0;
   }
   T max_flow(int s, int t) {
     T total = 0;
@@ -68,7 +50,27 @@ struct Dinic {
     }
     return total;
   }
-  //returns where in the min-cut (S,T) the vertex u is
-  //false: u in S, true: u in T
   bool cut(int u) const { return dist[u] == n + 1; }
 };
+//hash do de cima: c235a4a35cf8a9c14b5a906e6a2885474dc54aca7cd56c1513c803f6a91ead9b
+//cut(u) returns where in the min-cut (S,T) the vertex u is
+//false: u in S, true: u in T
+
+// T dfs(int u, int t, T flow) {
+//   if(u == t || flow == 0) {
+//     return flow;
+//   }
+//   for(int& i = ptr[u]; i < (int)g[u].size(); ++i) {
+//     E& e = edges[g[u][i]];
+//     E& oe = edges[g[u][i] ^ 1];
+//     if(dist[e.to] == dist[oe.to] + 1) {
+//       T amt = min(flow, e.res());
+//       if(T ret = dfs(e.to, t, amt)) {
+//         e.flow += ret;
+//         oe.flow -= ret;
+//         return ret;
+//       }
+//     }
+//   }
+//   return 0;
+// }

@@ -1,3 +1,5 @@
+// Comando hash de codigo :w !sha256sum
+
 // Bitset operations
 __builtin_popcount(int x);
 __builtin_popcountll(ll x);
