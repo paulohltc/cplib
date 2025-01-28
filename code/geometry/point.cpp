@@ -18,7 +18,15 @@ struct PT{
   double len() const { return hypot(x,y); }
   PT perp() const { return PT(-y,x); }
   PT rotate(double a) const { return PT(x*cos(a)-y*sin(a), x*sin(a)+y*cos(a)); }
+  int quad() { return (x<0)^3*(y<0); }
+  bool ccw(PT<T> q, PT<T> r){ return (q-*this).cross(r-q) > 0;}
 };
-ostream &operator<<(ostream &os, const PT<ll> &p) {
+template<typename T>
+bool cmp_ang(PT<T> p, PT<T> q){
+    if (p.quad() != q.quad()) return p.quad() < q.quad();
+    return q.ccw(PT<T>(0,0),p);
+}
+
+ostream &operator<<(ostream &os, const PT<int> &p) {
   return os << "(" << p.x << "," << p.y << ")"; 
 }
