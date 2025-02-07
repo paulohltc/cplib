@@ -17,7 +17,7 @@ struct Dinic {
   void add_edge(int u, int v, T cap) {
     if(u != v) {
       ed.emplace_back(v, cap);
-      edges.emplace_back(u, 0);
+      ed.emplace_back(u, 0);
       g[u].emplace_back(m++);
       g[v].emplace_back(m++);
     }	
@@ -40,6 +40,24 @@ struct Dinic {
     }
     return dist[t] != n + 1;
   }
+  T dfs(int u, int t, T flow) {
+    if(u == t || flow == 0) {
+      return flow;
+    }
+    for(int& i = ptr[u]; i < (int)g[u].size(); ++i) {
+      E& e = ed[g[u][i]];
+      E& oe = ed[g[u][i] ^ 1];
+      if(dist[e.to] == dist[oe.to] + 1) {
+        T amt = min(flow, e.res());
+        if(T ret = dfs(e.to, t, amt)) {
+          e.flow += ret;
+          oe.flow -= ret;
+          return ret;
+        }
+      }
+    }
+    return 0;
+  }
   T max_flow(int s, int t) {
     T total = 0;
     while(bfs(s, t)) {
@@ -52,25 +70,3 @@ struct Dinic {
   }
   bool cut(int u) const { return dist[u] == n + 1; }
 };
-//hash do de cima: c235a4a35cf8a9c14b5a906e6a2885474dc54aca7cd56c1513c803f6a91ead9b
-//cut(u) returns where in the min-cut (S,T) the vertex u is
-//false: u in S, true: u in T
-
-// T dfs(int u, int t, T flow) {
-//   if(u == t || flow == 0) {
-//     return flow;
-//   }
-//   for(int& i = ptr[u]; i < (int)g[u].size(); ++i) {
-//     E& e = edges[g[u][i]];
-//     E& oe = edges[g[u][i] ^ 1];
-//     if(dist[e.to] == dist[oe.to] + 1) {
-//       T amt = min(flow, e.res());
-//       if(T ret = dfs(e.to, t, amt)) {
-//         e.flow += ret;
-//         oe.flow -= ret;
-//         return ret;
-//       }
-//     }
-//   }
-//   return 0;
-// }
