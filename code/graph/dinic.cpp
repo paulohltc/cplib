@@ -31,7 +31,7 @@ struct Dinic {
       q.pop();
       if(u == t) break;
       for(int id : g[u]) {
-        E& e = edges[id];
+        E& e = ed[id];
         if(e.res() > 0 && dist[e.to] > dist[u] + 1) {
           dist[e.to] = dist[u] + 1;
           q.emplace(e.to);
