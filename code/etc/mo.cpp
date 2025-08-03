@@ -24,7 +24,6 @@ struct Query{
         return ord < other.ord;
     }
 };
-// hash de cima: cc976f44618d4ffc1bce4043eeed0ab2d48e270c90075135727d8e8b83bc8e76
 // Mo normal
 const int MXN = 2e5;
 const int B = sqrt(MXN) + 1;
@@ -39,9 +38,8 @@ ll a[MXN];
 ll resp = 0;
 void add(int x);
 void remove(int x);
+
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     int n, q; cin >> n >> q;
     for(int i = 0; i < n; i++)
         cin >> a[i];
@@ -63,3 +61,9 @@ int main(){
     for(int i = 0; i < q; i++)
         cout << answers[i] << "\n";
 }
+/*
+Mo em arvore: queries em caminhos. Olhar carinhas que aparecem quantidade impar de vezes
+Seja u menor tin
+se u for lca de v: range = [tin[u], tin[v]] 
+c.c: range = [tout[u], tin[v]] U [tin[lca],tin[lca]] -- tratar lca separado quando tiver respondendo
+*/
