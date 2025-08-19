@@ -5,7 +5,7 @@ vector<int> g[mxn];
 int clr[mxn];
 int inv[mxn];
 int sz[mxn];
-int cnt[mxn]
+int cnt[mxn];
 void calcsz(int u, int p){
     sz[u] = 1;
     tin[u] = ++timer;
