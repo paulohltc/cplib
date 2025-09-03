@@ -13,8 +13,8 @@ struct SparseTable{
     table[0] = v;
     for(int lg = 0; lg < LOG; lg++){
       for(int i = 0; i < n; i++){
-        if (j + (1 << i) >= n) break;
-        table[i + 1][j] = min(table[i][j], table[i][j + (1 << i)]);
+        if (i + (1 << lg) >= n) break;
+        table[lg + 1][i] = min(table[lg][i], table[lg][i + (1 << lg)]);
       }
     }
   }
