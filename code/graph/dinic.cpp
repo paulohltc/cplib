@@ -46,12 +46,12 @@ struct Dinic {
     }
     for(int& i = ptr[u]; i < (int)g[u].size(); ++i) {
       E& e = ed[g[u][i]];
-      E& oe = ed[g[u][i] ^ 1];
-      if(dist[e.to] == dist[oe.to] + 1) {
+      E& eRev = ed[g[u][i] ^ 1];
+      if(dist[e.to] == dist[eRev.to] + 1) {
         T amt = min(flow, e.res());
         if(T ret = dfs(e.to, t, amt)) {
           e.flow += ret;
-          oe.flow -= ret;
+          eRev.flow -= ret;
           return ret;
         }
       }
