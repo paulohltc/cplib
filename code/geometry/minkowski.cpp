@@ -1,11 +1,11 @@
 using P = PT<double>;
 vector<P> minkowskiSum(vector<P> p, vector<P> q){
-  if(p.empty() || q.empty()) return {};
-  auto fix = [](vector<P>& x) {
-      rotate(x.begin(), min_element(x.begin(), x.end()), x.end());
-      x.push_back(x[0]), x.push_back(x[1]);
-  };
-  fix(p); fix(q);
+	if(p.empty() || q.empty()) return {};
+	auto fix = [](vector<P>& x) {
+	  rotate(x.begin(), min_element(x.begin(), x.end()), x.end());
+	  x.push_back(x[0]), x.push_back(x[1]);
+	};
+	fix(p); fix(q);
 	vector<P> ret;
 	int i = 0, j = 0;
 	while (i < p.size()-2 or j < q.size()-2) {
@@ -28,11 +28,11 @@ double dist_convex(vector<P> p, vector<P> q) {
 	auto s = minkowskiSum(p, q);
 	if (isInside(s, P(0,0))) return 0;
 	double ans = 1e18; // INF
-  int ssz = s.size();
-  for(int i = 0; i < ssz; i++){
-        int j = (i+1)%ssz;
-        ans = min(ans, segDist(s[i], s[j], P(0,0)));
-    }
+	int ssz = s.size();
+	for(int i = 0; i < ssz; i++){
+		int j = (i+1)%ssz;
+		ans = min(ans, segDist(s[i], s[j], P(0,0)));
+	}
 	return ans;
 }
  
