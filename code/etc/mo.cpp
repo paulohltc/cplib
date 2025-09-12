@@ -61,9 +61,9 @@ int main(){
     for(int i = 0; i < q; i++)
         cout << answers[i] << "\n";
 }
-/*
+/*LATEX_DESC_BEGIN***************************
 Mo em arvore: queries em caminhos. Olhar carinhas que aparecem quantidade impar de vezes
 Seja u menor tin
 se u for lca de v: range = [tin[u], tin[v]] 
 c.c: range = [tout[u], tin[v]] U [tin[lca],tin[lca]] -- tratar lca separado quando tiver respondendo
-*/
+*****************************LATEX_DESC_END*/

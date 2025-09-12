@@ -1,0 +1,75 @@
+$
+# First line is the divisor character used to separate the file name from it's title!!!
+# Don't change the first line!!!
+
+# Any line followed by a '#' character is ignored
+# Section headings must be in square brackets
+# Subsections within a section should follow the format:
+# (filename within code directory)(divisor character:$)(subsection title)
+# div character:$
+
+# If you add an '@' at the end of a file title, that file will not be hashed, even if use_hash is true.
+
+[string]
+./code/string/kmp.cpp        $ kmp
+./code/string/aho.cpp        $ aho
+./code/string/trie.cpp       $ trie
+./code/string/zfunc.cpp      $ zfunc
+
+[dp]
+./code/dp/cht2.cpp  $ cht2
+./code/dp/cht.cpp   $ cht
+./code/dp/lis.cpp   $ lis
+
+[math]
+./code/math/mint.cpp               $ mint
+./code/math/extendedEuclidean.cpp  $ extendedEuclidean
+./code/math/crt.cpp                $ crt
+./code/math/pollardrho.cpp         $ pollardrho
+./code/math/frac.cpp               $ frac
+./code/math/fastexp.cpp            $ fastexp
+./code/math/divtrick.cpp           $ divtrick
+./code/math/phi.cpp                $ phi
+./code/math/gaussianElim.cpp       $ gaussianElim
+
+[geometry]
+./code/geometry/minkowski.cpp    $ minkowski
+./code/geometry/mincircle.cpp    $ mincircle
+./code/geometry/closestpair.cpp  $ closestpair
+./code/geometry/point.cpp        $ point
+./code/geometry/convexhull.cpp   $ convexhull
+
+[data-structures]
+./code/data-structures/maxqueue.cpp         $ maxqueue
+./code/data-structures/segtree-lazy.cpp     $ segtree-lazy
+./code/data-structures/kd-tree.cpp          $ kd-tree
+./code/data-structures/colorupdate.cpp      $ colorupdate
+./code/data-structures/sparsetable.cpp      $ sparsetable
+./code/data-structures/fenwick-tree.cpp     $ fenwick-tree
+./code/data-structures/dynamic-median.cpp   $ dynamic-median
+./code/data-structures/segtree-topdown.cpp  $ segtree-topdown
+
+[etc]
+./code/etc/mo.cpp              $ mo
+./code/etc/bitset.cpp          $ bitset
+./code/etc/ternary-search.cpp  $ ternary-search
+./code/etc/formulas.txt        $ formulas
+./code/etc/composite.txt       $ composite
+
+[graph]
+./code/graph/kosaraju.cpp       $ kosaraju
+./code/graph/dinic.cpp          $ dinic
+./code/graph/kruskal.cpp        $ kruskal
+./code/graph/smallToLarge.cpp   $ smallToLarge
+./code/graph/policyBased.cpp    $ policyBased
+./code/graph/centroid.cpp       $ centroid
+./code/graph/articulation.cpp   $ articulation
+./code/graph/mcmf.cpp           $ mcmf
+./code/graph/dsu.cpp            $ dsu
+./code/graph/dijkstra.cpp       $ dijkstra
+./code/graph/twosat.cpp         $ twosat
+./code/graph/lca.cpp            $ lca
+./code/graph/floydWarshall.cpp  $ floydWarshall
+./code/graph/bridges.cpp        $ bridges
+
+

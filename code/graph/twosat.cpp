@@ -1,12 +1,13 @@
 #define PB push_back
-// usar ~ para negacao
-/*
+
+/*LATEX_DESC_BEGIN***************************
+usar ~ para negacao
 regras logica
 A->B = ~B->~A (contrapositiva)
 A->B = ~A | B (lei da implicacao)
 ~(A|B) = ~A & ~B (de morgan)
 A & (B|C) = (A&B) | (A&C) (distributiva)
-*/
+*****************************LATEX_DESC_END*/
  
 struct TwoSat{
   int n;

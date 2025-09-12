@@ -1,0 +1,179 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[left=0.6cm, right=0.6cm, top=0.6cm, bottom=0.6cm]{geometry}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{adjustbox}
+\usepackage{mdframed}
+\usepackage{tocloft}
+\usepackage{pdflscape}
+\usepackage{multicol}
+\usepackage[scaled]{beramono}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{etoolbox}
+\usepackage{needspace}
+
+% Colors of description boxes
+\definecolor{descboxbg}{RGB}{253,253,255}
+\definecolor{blockdescbg}{RGB}{250,250,220}
+
+\tcbuselibrary{listings}
+\tcbuselibrary{breakable, skins} 
+\renewcommand{\arraystretch}{0.85}
+
+\graphicspath{{./images/}{./temp/}} % Pastas para buscar imagens
+
+\renewcommand*{\ttdefault}{pcr}
+\renewcommand\cftsecfont{\fontsize{10}{11}\bfseries}
+\renewcommand\cftsecpagefont{\fontsize{10}{11}\mdseries}
+\renewcommand\cftsubsecfont{\fontsize{8}{9}\mdseries}
+\renewcommand\cftsubsecpagefont{\fontsize{8}{9}\mdseries}
+\renewcommand\cftsecafterpnum{\vspace{-1ex}}
+\renewcommand\cftsubsecafterpnum{\vspace{-1ex}}
+
+
+\lstdefinestyle{shared}{
+  belowcaptionskip=0.05\baselineskip,
+  breaklines=true,
+  xleftmargin=0pt,
+  showstringspaces=false,
+  basicstyle=\fontsize{7}{8}\ttfamily,
+}
+\lstdefinestyle{cpp}{
+  style=shared,
+  language=C++,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{red!80!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{purple!40!black},
+}
+\lstdefinestyle{java}{
+  style=shared,
+  language=Java,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+\lstdefinestyle{py}{
+  style=shared,
+  language=Python,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+\lstdefinestyle{sh}{
+  style=shared,
+  language=bash,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+\lstdefinestyle{txt}{
+  style=shared,
+}
+% LATEX DESC
+\lstdefinestyle{description}{
+  frame=single,
+  xleftmargin=0pt,
+  basicstyle=\fontsize{7}{8}\ttfamily,
+  rulesepcolor=\color{gray},
+  rulecolor=\color{descboxbg},
+  frameround=tttt,
+  breaklines=true,
+  breakatwhitespace=true,
+  showstringspaces=false,
+  tabsize=2,
+  keepspaces=true,                 
+  numbersep=5pt,                  
+  showspaces=false,                
+  showtabs=false,           
+}
+\lstset{
+  escapechar=@,
+  tabsize=2,
+}
+\tcbset{
+  colback=gray!10,
+  colframe=gray!40,
+  boxrule=0.5pt,
+  arc=2pt,
+  left=3pt,
+  right=3pt,
+  top=3pt,
+  bottom=3pt,
+  boxsep=2pt
+}
+
+% BLOCK_DESC
+\newmdenv[
+  backgroundcolor=blockdescbg,
+  linecolor=gray!30,
+  linewidth=0.4pt,
+  roundcorner=4pt,
+  leftmargin=0pt,
+  rightmargin=0pt,
+  innerleftmargin=4pt,
+  innerrightmargin=4pt,
+  innertopmargin=2pt,
+  innerbottommargin=2pt,
+  skipabove=0pt,
+  skipbelow=1pt,
+  font=\fontsize{6}{7}\ttfamily,
+]{blockdescenv}
+
+\newcommand{\blockdesc}[1]{%
+  \par\vspace{-5pt}
+  \noindent
+  \begin{adjustbox}{minipage=\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+    \begin{blockdescenv}
+      #1
+    \end{blockdescenv}
+  \end{adjustbox}
+  \vspace{1pt}
+}
+
+\pagestyle{fancy}
+\fancyhead[L]{Universidade Federal de Pernambuco - palao}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+
+\fancypagestyle{plain}{
+\fancyhead[L]{Universidade Federal de Pernambuco - palao}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+}
+
+\title{\vspace{-5ex}\Large{\underline{
+  palao - ICPC Library
+}}}
+\author{}
+\date{}
+
+\begin{document}
+\begin{landscape}
+\begin{multicols*}{3}  % MUDE A QUANTIDADE DE COLUNAS AQUI
+\raggedcolumns 
+\interlinepenalty=10000
+
+\maketitle
+\vspace{-13ex}
+{\tiny\today} \vspace{-3ex}
+\tableofcontents
+\pagestyle{fancy}
+
+\input contents.tex
+
+\end{multicols*}
+\end{landscape}
+\end{document}

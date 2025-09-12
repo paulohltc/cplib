@@ -1,4 +1,4 @@
-// Lazy SegTree
+// Lazy SegTree ta meio desatualizado mas sei modificar
 const int mx = 2e5+5;
 vector<ll> seg(4*mx);
 vector<ll> lazy(4*mx,0);
