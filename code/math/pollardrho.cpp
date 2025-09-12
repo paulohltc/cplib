@@ -1,4 +1,3 @@
-// from: https://github.com/kth-competitive-programming/kactl
 typedef unsigned long long ull;
 ull modmul(ull a, ull b, ull M) {
 	ll ret = a * b - M * ull(1.L / M * a * b);
@@ -25,7 +24,7 @@ bool isPrime(ull n) {
 ull pollard(ull n) {
 	ull x = 0, y = 0, t = 30, prd = 2, i = 1, q;
 	auto f = [&](ull x) { return modmul(x, x, n) + i; };
-	while (t++ % 40 || __gcd(prd, n) == 1) {
+	while (t++ % 40 || gcd(prd, n) == 1) {
 		if (x == y) x = ++i, y = f(x);
 		if ((q = modmul(prd, max(x,y) - min(x,y), n))) prd = q;
 		x = f(x), y = f(f(y));
@@ -37,7 +36,6 @@ vector<ull> factor(ull n) {
 	if (isPrime(n)) return {n};
 	ull x = pollard(n);
 	auto l = factor(x), r = factor(n / x);
-	l.insert(l.end(), begin(r),end(r));
+	l.insert(end(l), begin(r),end(r));
 	return l;
 }
-// hash: 3782d14edf6f6c81aa19f1dbbf0b31d3fa0b82704f5aeb2f2554fd3bc8404702

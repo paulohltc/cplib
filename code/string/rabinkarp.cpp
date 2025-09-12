@@ -43,4 +43,3 @@ public:
     return (x<<32LL)|y;
   }
 };
-// hash de buildpots pra baixo: 97523f3c3aa5a2f0ae00021355eb26036f231e731b032edfdb6bd96153886ca7
