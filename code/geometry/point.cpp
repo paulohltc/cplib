@@ -16,6 +16,7 @@ struct PT{
   T dot(PT o) const { return x*o.x + y*o.y; }
   T dist2() const { return x*x + y*y; }
   double len() const { return hypot(x,y); }
+  double ang(PT o) const { return abs(atan2l((*this).cross(o), (*this).dot(o)));}
   PT perp() const { return PT(-y,x); }
   PT rotate(double a) const { return PT(x*cos(a)-y*sin(a), x*sin(a)+y*cos(a)); }
   int quad() { return (x<0)^3*(y<0); }
