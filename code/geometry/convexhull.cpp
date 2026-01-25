@@ -2,6 +2,7 @@
 template<typename T>
 vector<PT<T>> convexHull(vector<PT<T>>& pts, bool sorted = false){
   if(!sorted) sort(begin(pts),end(pts));
+  if(pts.size() == 1) return pts;
   vector<PT<T>> h;
   h.reserve(pts.size() + 1);
   for(int it = 0; it < 2; it++){
