@@ -1,9 +1,11 @@
 // Lazy SegTree ta meio desatualizado mas sei modificar
 const int mx = 2e5+5;
-vector<ll> seg(4*mx);
-vector<ll> lazy(4*mx,0);
-vector<ll> nums(mx);
+ll seg[4*mx], lazy[4*mx], nums[mx];
 int n,q;
+
+ll join(ll a, ll b){
+	return a + b;
+}
 
 void build(int l = 0, int r = n-1, int idx = 0){
 	if(l == r){
@@ -12,15 +14,13 @@ void build(int l = 0, int r = n-1, int idx = 0){
 		return;
 	}
 	int m = (l+r)/2;
-	int left = 2*idx+1;
-	int right = 2*idx+2;
-	build(l,m,left);
-	build(m+1,r,right);
-	seg[idx] = seg[left] + seg[right];
+	build(l, m, 2*idx+1);
+	build(m+1, r, 2*idx+2);
+	seg[idx] = join(seg[2*idx+1], seg[2*idx+2]);
 }
 
 void prop(int l = 0, int r = n-1, int idx = 0){
-	seg[idx] += (ll)(r-l+1)*lazy[idx];
+	seg[idx] += (ll)(r - l + 1) * lazy[idx];
 	if(l != r){ // nao for folha
 		int left = 2*idx+1;
 		int right = 2*idx+2;
@@ -31,30 +31,28 @@ void prop(int l = 0, int r = n-1, int idx = 0){
 }
 
 void update(int L, int R, ll val, int l = 0, int r = n-1, int idx = 0){
-	if(R < l || L > r) return;
 	prop(l,r,idx);
+	if(R < l || L > r) return;
 	if(L <= l && r <= R){
 		lazy[idx] = val;
 		prop(l,r,idx);
 	}
 	else{
 		int m = (l+r)/2;
-		int left = 2*idx+1;
+		int left = ;
 		int right = 2*idx+2;
-		update(L,R,val,l,m,left);
-		update(L,R,val,m+1,r,right);
-		seg[idx] = seg[left] + seg[right];
+		update(L, R, val, l, m, 2*idx+1);
+		update(L, R, val, m+1, r, 2*idx+2);
+		seg[idx] = join(seg[left], seg[right]);
 	}
 }
 
 ll query(int L, int R, int l = 0, int r = n-1, int idx = 0){
 	prop(l,r,idx);
-	if(R < l || L > r) return 0;
+	if(R < l || L > r) return 0; // Neutro
 	if(L <= l && r <= R){
 		return seg[idx];
 	}
 	int m = (l+r)/2;
-	int left = 2*idx+1;
-	int right = 2*idx+2;
-	return query(L,R,l,m,left) + query(L,R,m+1,r,right);
+	return join(query(L, R, l, m, 2*idx+1), query(L, R, m+1, r, 2*idx+2));
 }
