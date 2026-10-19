@@ -46,11 +46,11 @@ bool isInside(vector<PT<T>>& hull, PT<T> p) {
 }
 
 // poligonos
-ll polygon_area_db(const vector<Point>& poly){
+ll polygon_area_db(const vector<PT<ll>>& poly){
   ll area = 0;
   for(int i = 0, n = (int)poly.size(); i < n; ++i) {
     int j = i + 1 == n ? 0 : i + 1;
-    area += cross(poly[i], poly[j]);
+    area += poly[i].cross(poly[j]);
   }
   return abs(area);
 }
